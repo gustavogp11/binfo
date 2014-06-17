@@ -28,6 +28,11 @@
             <artifactId>biojava3-core</artifactId>
             <version>3.0.8</version>
         </dependency>
+        <dependency>
+            <groupId>org.biojava</groupId>
+            <artifactId>biojava3-ws</artifactId>
+            <version>3.0.8</version>
+        </dependency>
     </dependencies>
     
     <repositories>

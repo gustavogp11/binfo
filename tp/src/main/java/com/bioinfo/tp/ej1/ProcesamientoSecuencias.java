@@ -43,7 +43,8 @@ public class ProcesamientoSecuencias {
     
     public static void main(String[] args) throws Exception {
         try {
-            //args = new String[] { "C:\\Users\\Gustavo\\Documents\\GitHub\\binfo\\tp\\src\\main\\resources\\ej-nucleotidos-INS.gb" };
+            args = new String[] { "/Users/nicolaslaplume/Documents/utn/bioinfo/binfo/tp/src/main/resources/ej-nucleotidos-INS.gb" ,
+                    "/Users/nicolaslaplume/Documents/utn/bioinfo/binfo/tp/src/main/resources/output.fas"};
             checkArgs(args);
             InputStream input = new FileInputStream(args[0].toString());
             String outputFile = args[1].toString();
