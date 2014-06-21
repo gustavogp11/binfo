@@ -17,8 +17,7 @@ import org.biojava3.ws.alignment.qblast.*;
 public class Blast {    
 
 	/**
-     * 
-     * @param genbankFile: archivo en formato genbank
+     *
      * @param outputFile: nombre del archivo de salida
      * @return Secuencia de aminoacidos en formato FASTA
      * @throws Exception 
@@ -31,11 +30,11 @@ public class Blast {
         NCBIQBlastAlignmentProperties props = new NCBIQBlastAlignmentProperties();
         props.setBlastProgram(BlastProgramEnum.blastp);
         props.setBlastDatabase("swissprot");
-        props.setAlignmentOption(ENTREZ_QUERY, "\"serum albumin\"[Protein name] AND mammals[Organism]");
+        //props.setAlignmentOption(ENTREZ_QUERY, "\"serum albumin\"[Protein name] AND mammals[Organism]");
 
         //set output options
         NCBIQBlastOutputProperties outputProperties = new NCBIQBlastOutputProperties();
-        outputProperties.setOutputFormat(BlastOutputFormatEnum.HTML);
+        outputProperties.setOutputFormat(BlastOutputFormatEnum.XML);
 
         String requestId = null;
         FileWriter writer = null;
@@ -92,8 +91,8 @@ public class Blast {
     
     public static void main(String[] args) throws Exception {
         try {
-            args = new String[] { "/Users/nicolaslaplume/Documents/utn/bioinfo/binfo/tp/src/main/resources/ej.fasta" ,
-                    "/Users/nicolaslaplume/Documents/utn/bioinfo/binfo/tp/src/main/resources/output.bst"};
+           // args = new String[] { "C:\\Users\\KinSniK\\Documents\\Java\\Bio\\binfo\\tp\\src\\main\\resources\\ej.fasta" ,
+           //         "C:\\Users\\KinSniK\\Documents\\Java\\Bio\\binfo\\tp\\src\\main\\resources\\output.xml"};
             checkArgs(args);
             InputStream input = new FileInputStream(args[0].toString());
             String outputFile = args[1].toString();
