@@ -1,0 +1,1 @@
+java -cp "C:\Users\Gustavo\Documents\GitHub\binfo\tp\target\tp-1.0.jar" com.bioinfo.tp.ej1.Ejercicio_1 C:\Users\Gustavo\Documents\GitHub\binfo\tp\src\main\resources\nucleotidos-ch6.gb C:\Users\Gustavo\Documents\Sistemas\Bioinformatica\TP\test.fasta

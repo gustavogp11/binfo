@@ -10,12 +10,13 @@ import org.biojava3.core.sequence.DNASequence;
 import org.biojava3.core.sequence.ProteinSequence;
 import org.biojava3.core.sequence.io.FastaWriterHelper;
 import org.biojava3.core.sequence.io.GenbankReaderHelper;
+import org.biojava3.core.sequence.transcription.Frame;
 
 /**
  *
  * @author Gustavo
  */
-public class ProcesamientoSecuencias {
+public class Ejercicio_1 {
     
     /**
      * 
@@ -29,7 +30,8 @@ public class ProcesamientoSecuencias {
         File output = new File(outputFile);
         Collection<ProteinSequence> listProteinSequence = new ArrayList<ProteinSequence>();
         for (DNASequence sequence : dnaSequences.values()) {
-            listProteinSequence.add(sequence.getRNASequence().getProteinSequence());
+            for(Frame frame : Frame.getAllFrames())
+                listProteinSequence.add(sequence.getRNASequence(frame).getProteinSequence());
 	}
         FastaWriterHelper.writeProteinSequence(output, listProteinSequence);
         return output;
@@ -43,12 +45,12 @@ public class ProcesamientoSecuencias {
     
     public static void main(String[] args) throws Exception {
         try {
-            args = new String[] { "/Users/nicolaslaplume/Documents/utn/bioinfo/binfo/tp/src/main/resources/ej-nucleotidos-INS.gb" ,
-                    "/Users/nicolaslaplume/Documents/utn/bioinfo/binfo/tp/src/main/resources/output.fas"};
+            args = new String[] { "C:\\Users\\Gustavo\\Documents\\GitHub\\binfo\\tp\\src\\main\\resources\\nucleotidos-ch6.gb", 
+                                "C:\\Users\\Gustavo\\Documents\\Sistemas\\Bioinformatica\\TP\\test.fasta"};
             checkArgs(args);
             InputStream input = new FileInputStream(args[0].toString());
             String outputFile = args[1].toString();
-            ProcesamientoSecuencias p = new ProcesamientoSecuencias();
+            Ejercicio_1 p = new Ejercicio_1();
             File fout = p.nucleotidosToAminoacidos(input, outputFile);
             System.out.println("Se ha generado el archivo de salida en: " + fout.getPath());
         } catch(Exception e) {
