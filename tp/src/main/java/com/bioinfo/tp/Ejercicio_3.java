@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.bioinfo.tp.ej3;
+package com.bioinfo.tp;
 
 import java.io.FileInputStream;
 import java.io.InputStream;
@@ -24,7 +24,7 @@ import java.io.File;
  *
  * @author Gustavo
  */
-public class BlastOutput {
+public class Ejercicio_3 {
 
     private static void parseBlastOutput(String inFile, String pattern, String outFile) throws Exception{
         File fXmlFile = new File(inFile);

@@ -1,4 +1,4 @@
-package com.bioinfo.tp.ej1;
+package com.bioinfo.tp;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -6,6 +6,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedHashMap;
+import org.biojava3.core.sequence.AccessionID;
 import org.biojava3.core.sequence.DNASequence;
 import org.biojava3.core.sequence.ProteinSequence;
 import org.biojava3.core.sequence.io.FastaWriterHelper;
@@ -30,8 +31,11 @@ public class Ejercicio_1 {
         File output = new File(outputFile);
         Collection<ProteinSequence> listProteinSequence = new ArrayList<ProteinSequence>();
         for (DNASequence sequence : dnaSequences.values()) {
-            for(Frame frame : Frame.getAllFrames())
-                listProteinSequence.add(sequence.getRNASequence(frame).getProteinSequence());
+            for(Frame frame : new Frame[] { Frame.ONE, Frame.TWO, Frame.THREE, Frame.REVERSED_THREE, Frame.REVERSED_TWO, Frame.REVERSED_ONE } ) {
+                ProteinSequence seq = sequence.getRNASequence(frame).getProteinSequence();
+                seq.setOriginalHeader("FRAME " + frame.name());
+                listProteinSequence.add(seq);
+            }
 	}
         FastaWriterHelper.writeProteinSequence(output, listProteinSequence);
         return output;
@@ -45,8 +49,10 @@ public class Ejercicio_1 {
     
     public static void main(String[] args) throws Exception {
         try {
+            /*
             args = new String[] { "C:\\Users\\Gustavo\\Documents\\GitHub\\binfo\\tp\\src\\main\\resources\\nucleotidos-ch6.gb", 
                                 "C:\\Users\\Gustavo\\Documents\\Sistemas\\Bioinformatica\\TP\\test.fasta"};
+            */
             checkArgs(args);
             InputStream input = new FileInputStream(args[0].toString());
             String outputFile = args[1].toString();

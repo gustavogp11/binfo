@@ -1,4 +1,4 @@
-package com.bioinfo.tp.ej2;
+package com.bioinfo.tp;
 
 import static org.biojava3.ws.alignment.qblast.BlastAlignmentParameterEnum.ENTREZ_QUERY;
 import java.io.*;
@@ -14,7 +14,7 @@ import org.biojava3.ws.alignment.qblast.*;
  *
  * @author Nicolas
  */
-public class Blast {    
+public class Ejercicio_2 {    
 
 	/**
      *
